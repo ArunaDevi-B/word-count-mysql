@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../Config/dbConfig');
+const sequelize = require('../Config/db-config');
 
 
 class WebLinkModel extends Model { }
@@ -29,8 +29,8 @@ class WebLinkModel extends Model { }
     }
 },{ 
     sequelize, 
-    modelName: 'WebLinkModel',
-    tableName: 'webLinkModel',
+    modelName: 'webscrapdata',
+    tableName: 'webscrapdata',
  })
 
  module.exports = WebLinkModel;

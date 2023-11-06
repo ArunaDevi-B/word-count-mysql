@@ -1,10 +1,11 @@
 const {Sequelize, DataTypes} = require("sequelize");
-
+const env = require('dotenv');
+env.config();
 let dbConfig = {
-    host: "localhost",
-    user: "root",
-    password:"",
-    database:"webscraperdb",
+    host: process.env.host,
+    user: process.env.user,
+    password: process.env.password,
+    database: process.env.database,
     multipleStatements: true,
     dialect: 'mysql'
 };

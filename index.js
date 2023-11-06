@@ -1,19 +1,24 @@
 const express = require('express');
-const server = require('./Config/dbConfig');
-const routes = require('./Routes/Route');
+const routes = require('./Routes/route');
 const bodyParser = require('body-parser');
 const env = require('dotenv');
+const cors = require('cors');
 
-const app = express();
-app.use(express.json());
-console.log(process.env.port,'1');
-app.use(bodyParser.urlencoded({extended: true}));
+// configuring the env file
 env.config();
+const app = express();
+
+// parsing the data from body using body-parser
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+// To prevent the cross origin error, using cors
+app.use(cors());
+
 const port = process.env.port;
-console.log(port,'port');
-// server.connecDB();
 app.use(routes);
 
+// Sample api for checking the server health
 app.get('/', (req,res) => {
     console.log('server Health is good!!!');
     res.send('Server health is good');
