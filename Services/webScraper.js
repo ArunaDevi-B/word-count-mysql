@@ -116,7 +116,11 @@ function removeScript(text) {
 const getAllURL = async () => {
     try{
         const allURLData = await WebLinkModel.findAll({});
-        return allURLData;
+        if(allURLData.length> 0){
+            return allURLData;
+        }else{
+            return [];
+        }
     }catch(error){
         console.log(error);
     }
